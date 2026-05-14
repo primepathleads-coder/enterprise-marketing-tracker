@@ -14,6 +14,11 @@ async function bootstrap() {
     allowedHeaders: 'Content-Type, Accept, Authorization, x-workspace-id',
   });
   
-  await app.listen(process.env.PORT ?? 3000);
+  console.log(`Application is starting on port ${process.env.PORT ?? 3000}...`);
+  await app.listen(process.env.PORT ?? 3000, '0.0.0.0');
+  console.log(`Application is live at: ${await app.getUrl()}`);
 }
-bootstrap();
+bootstrap().catch(err => {
+  console.error('Failed to start application:', err);
+  process.exit(1);
+});
