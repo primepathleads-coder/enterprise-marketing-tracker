@@ -5,7 +5,8 @@ WORKDIR /app
 COPY . .
 
 # Build logic
-RUN if [ -d "backend" ]; then \
+RUN export DATABASE_URL="postgresql://postgres:postgres@localhost:5432/postgres"; \
+    if [ -d "backend" ]; then \
       cd backend && npm install && npx prisma generate && npm run build; \
     else \
       npm install && npx prisma generate && npm run build; \
