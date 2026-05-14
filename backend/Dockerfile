@@ -1,13 +1,19 @@
 FROM node:20-alpine
 WORKDIR /app
-COPY package*.json ./
-RUN npm install
+
+# Copy the entire context
 COPY . .
-RUN npx prisma generate
-RUN npm run build
-EXPOSE 3000
-CMD ["node", "dist/main"]
+
+# Determine if we are in a monorepo root or backend subdirectory
+RUN if [ -d "backend" ]; then \
+      echo "Building from monorepo root..."; \
+      cd backend && npm install && npx prisma generate && npm run build; \
+    else \
+      echo "Building from backend subdirectory..."; \
+      npm install && npx prisma generate && npm run build; \
+    fi
 
 EXPOSE 3000
 
-CMD ["node", "dist/main"]
+# Use a shell to determine the correct entrypoint at runtime
+CMD ["sh", "-c", "if [ -d 'backend/dist' ]; then node backend/dist/main; else node dist/main; fi"]
