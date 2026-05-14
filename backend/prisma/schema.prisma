@@ -1,0 +1,147 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+}
+
+model User {
+  id        String   @id @default(uuid())
+  email     String   @unique
+  password  String
+  name      String?
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+  
+  workspaces WorkspaceUser[]
+  auditLogs  AuditLog[]
+}
+
+model Workspace {
+  id           String   @id @default(uuid())
+  name         String
+  customDomain String?  @unique
+  createdAt    DateTime @default(now())
+  updatedAt    DateTime @updatedAt
+
+  // White Label Settings
+  logoUrl        String?
+  primaryColor   String   @default("#4f46e5") // Indigo 600
+  supportEmail   String?
+  
+  // Relations
+  users          WorkspaceUser[]
+  campaigns      Campaign[]
+  offers         Offer[]
+  trafficSources TrafficSource[]
+  clientPortals  ClientPortal[]
+  auditLogs      AuditLog[]
+  subscription   Subscription?
+}
+
+enum Role {
+  SUPER_ADMIN
+  AGENCY_OWNER
+  MANAGER
+  MEDIA_BUYER
+  ANALYST
+  CLIENT
+}
+
+model WorkspaceUser {
+  id          String   @id @default(uuid())
+  userId      String
+  workspaceId String
+  role        Role     @default(AGENCY_OWNER)
+  
+  // Granular permissions override (JSON)
+  permissions String?
+
+  user      User      @relation(fields: [userId], references: [id])
+  workspace Workspace @relation(fields: [workspaceId], references: [id])
+
+  @@unique([userId, workspaceId])
+}
+
+model ClientPortal {
+  id          String   @id @default(uuid())
+  workspaceId String
+  name        String
+  accessKey   String   @unique
+  campaignIds String[] // Array of campaign IDs this client can see
+  createdAt   DateTime @default(now())
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id])
+}
+
+model TrafficSource {
+  id          String   @id @default(uuid())
+  name        String
+  workspaceId String
+  postbackUrl String?
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  workspace Workspace  @relation(fields: [workspaceId], references: [id])
+  campaigns Campaign[]
+}
+
+model Offer {
+  id          String   @id @default(uuid())
+  name        String
+  url         String
+  workspaceId String
+  payout      Float    @default(0)
+  createdAt   DateTime @default(now())
+  updatedAt   DateTime @updatedAt
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id])
+  campaigns Campaign[]
+}
+
+model Subscription {
+  id              String    @id @default(uuid())
+  workspaceId     String    @unique
+  stripeCustomerId String?  @unique
+  stripeSubscriptionId String? @unique
+  plan            String    @default("TRIAL") // TRIAL, PRO, ENTERPRISE
+  status          String    @default("active") // active, past_due, canceled
+  currentPeriodEnd DateTime?
+  seatLimit       Int       @default(3)
+  eventQuotaLimit BigInt    @default(100000)
+  createdAt       DateTime  @default(now())
+  updatedAt       DateTime  @updatedAt
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id])
+}
+
+model AuditLog {
+  id          String   @id @default(uuid())
+  workspaceId String
+  userId      String?
+  action      String   // e.g., "CAMPAIGN_PAUSED", "USER_INVITED"
+  entityType  String   // e.g., "Campaign", "WorkspaceUser"
+  entityId    String?
+  metadata    String?  // JSON string of changes
+  ipAddress   String?
+  createdAt   DateTime @default(now())
+
+  workspace Workspace @relation(fields: [workspaceId], references: [id])
+  user      User?     @relation(fields: [userId], references: [id])
+}
+
+model Campaign {
+  id              String   @id @default(uuid())
+  name            String
+  workspaceId     String
+  trafficSourceId String
+  offerId         String
+  status          String   @default("ACTIVE")
+  createdAt       DateTime @default(now())
+  updatedAt       DateTime @updatedAt
+
+  workspace     Workspace     @relation(fields: [workspaceId], references: [id])
+  trafficSource TrafficSource @relation(fields: [trafficSourceId], references: [id])
+  offer         Offer         @relation(fields: [offerId], references: [id])
+}
