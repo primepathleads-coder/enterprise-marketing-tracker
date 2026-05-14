@@ -1,7 +1,7 @@
 FROM node:20-alpine
 WORKDIR /app
 
-# Copy the entire context
+# Copy everything
 COPY . .
 
 # Determine if we are in a monorepo root or backend subdirectory
@@ -15,6 +15,5 @@ RUN if [ -d "backend" ]; then \
 
 EXPOSE 3000
 
-# Use a shell to determine the correct entrypoint at runtime
-CMD ["sh", "-c", "if [ -d 'backend/dist' ]; then node backend/dist/main; else node dist/main; fi"]
-# Forced Redeploy: 05/14/2026 07:35:31
+# DYNAMIC DISCOVERY: Find main.js in any dist folder and run it
+CMD ["sh", "-c", "export ENTRYPOINT=$(find /app -name main.js | grep dist | head -n 1); echo 'Starting entrypoint: $ENTRYPOINT'; node $ENTRYPOINT"]
