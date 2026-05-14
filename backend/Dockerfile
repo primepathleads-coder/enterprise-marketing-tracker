@@ -13,5 +13,5 @@ RUN if [ -d "backend" ]; then \
 
 EXPOSE 3000
 
-# DYNAMIC DISCOVERY: Find main.js in any dist folder and run it
-CMD ["sh", "-c", "export ENTRYPOINT=$(find /app -name main.js | grep dist | head -n 1); echo 'Starting application from: $ENTRYPOINT'; node $ENTRYPOINT"]
+# DYNAMIC DISCOVERY: Find main.js in any dist folder (EXCLUDING node_modules) and run it
+CMD ["sh", "-c", "export ENTRYPOINT=$(find /app -not -path '*/node_modules/*' -name main.js | grep dist | head -n 1); echo 'Starting application from: $ENTRYPOINT'; node $ENTRYPOINT"]
