@@ -1,3 +1,4 @@
+// Production build fix v2
 import { Controller, Get, Query, UseGuards, Req } from '@nestjs/common';
 import { AnalyticsService } from './analytics.service';
 import { RolesGuard } from '../auth/roles.guard';
