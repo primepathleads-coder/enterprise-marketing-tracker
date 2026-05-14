@@ -1,6 +1,6 @@
 import { Controller, Get, Post, Req, Res, Query, Body } from '@nestjs/common';
 import { ClickService } from './click.service';
-import { Request, Response } from 'express';
+import type { Request, Response } from 'express';
 
 @Controller('tracking')
 export class ClickController {

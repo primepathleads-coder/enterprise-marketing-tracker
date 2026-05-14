@@ -3,7 +3,7 @@ import { AnalyticsService } from './analytics.service';
 import { RolesGuard } from '../auth/roles.guard';
 import { Roles } from '../auth/roles.decorator';
 import { Role } from '@prisma/client';
-import { Request } from 'express';
+import type { Request } from 'express';
 
 @Controller('api/analytics')
 @UseGuards(RolesGuard)
