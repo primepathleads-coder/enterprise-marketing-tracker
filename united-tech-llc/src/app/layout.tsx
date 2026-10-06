@@ -33,7 +33,7 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en" className={`${luthonSerif.variable} ${luthonScript.variable} ${mono.variable} font-sans scroll-smooth antialiased dark`}>
-      <body className="min-h-screen flex flex-col bg-[#08080c] text-[#f5f5f7] selection:bg-[#c5a059]/30">
+      <body className="min-h-screen flex flex-col bg-[#08080c] text-[#f5f5f7] selection:bg-[#c5a059]/30 overflow-x-hidden">
         <Header />
         <main className="relative z-10 w-full bg-[#08080c] shadow-2xl pb-12">
           {children}

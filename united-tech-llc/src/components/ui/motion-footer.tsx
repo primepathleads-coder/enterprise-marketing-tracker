@@ -278,11 +278,11 @@ export function CinematicFooter() {
       */}
       <div
         ref={wrapperRef}
-        className="relative h-screen w-full"
+        className="relative h-auto md:h-screen w-full"
         style={{ clipPath: "polygon(0% 0, 100% 0%, 100% 100%, 0 100%)" }}
       >
         {/* The actual footer stays fixed to the viewport underneath everything */}
-        <footer className="fixed bottom-0 left-0 flex h-screen w-full flex-col justify-between overflow-hidden bg-[#08080c] text-foreground cinematic-footer-wrapper">
+        <footer className="relative md:fixed bottom-0 left-0 flex h-auto md:h-screen pt-24 md:pt-0 w-full flex-col justify-between overflow-hidden bg-[#08080c] text-foreground cinematic-footer-wrapper">
           
           {/* Ambient Light & Grid Background */}
           <div className="footer-aurora absolute left-1/2 top-1/2 h-[60vh] w-[80vw] -translate-x-1/2 -translate-y-1/2 animate-footer-breathe rounded-[50%] blur-[80px] pointer-events-none z-0" />
@@ -305,7 +305,7 @@ export function CinematicFooter() {
           </div>
 
           {/* 2. Main Center Content */}
-          <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 mt-32 w-full max-w-7xl mx-auto">
+          <div className="relative z-10 flex flex-1 flex-col items-center justify-center px-6 mt-16 md:mt-32 w-full max-w-7xl mx-auto">
             {/* Prominent Logo */}
             <div ref={headingRef} className="mb-12 w-48 h-48 md:w-64 md:h-64 relative">
                <Image 

@@ -81,7 +81,7 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
 
   return (
     <>
-      <div className="flex flex-col md:flex-row items-start gap-8 md:gap-10 lg:gap-14 select-none w-full max-w-5xl mx-auto py-8 px-4 md:px-6">
+      <div className="flex flex-col md:flex-row items-start gap-8 md:gap-10 lg:gap-14 select-none w-full max-w-full lg:max-w-5xl mx-auto py-8 px-4 md:px-6 overflow-x-hidden">
         {/* Left: photo grid */}
         <div className="flex gap-2 md:gap-3 flex-shrink-0 overflow-x-auto pb-1 md:pb-0">
           {/* Column 1 */}
