@@ -47,7 +47,7 @@ export function ClientMarquee() {
               className="flex items-center justify-center grayscale hover:grayscale-0 opacity-70 hover:opacity-100 transition-all duration-300"
             >
               {/* Ensure logos render nicely over dark bg */}
-              <div className="relative h-14 w-40 flex items-center justify-center">
+              <div className="relative h-10 md:h-14 w-28 md:w-40 flex items-center justify-center">
                 <Image
                   src={client.logo}
                   alt={client.name}

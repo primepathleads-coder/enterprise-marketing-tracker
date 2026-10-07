@@ -70,7 +70,7 @@ export function Testimonial() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#08080c] overflow-hidden border-b border-white/10">
-      <div ref={containerRef} className="relative w-full max-w-6xl py-24 px-8" onMouseMove={handleMouseMove}>
+      <div ref={containerRef} className="relative w-full max-w-6xl py-16 md:py-24 px-6 md:px-8" onMouseMove={handleMouseMove}>
         {/* Oversized index number - positioned to bleed off left edge */}
         <motion.div
           className="absolute -left-12 top-1/2 -translate-y-1/2 text-[30rem] font-bold text-white/[0.02] select-none pointer-events-none leading-none tracking-tighter"
