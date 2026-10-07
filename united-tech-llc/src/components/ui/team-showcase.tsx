@@ -167,8 +167,8 @@ export default function TeamShowcase({ members = DEFAULT_MEMBERS }: TeamShowcase
               </button>
 
               <div className="flex flex-col md:flex-row gap-8 items-start">
-                <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 border-2 border-[#c5a059] overflow-hidden rounded-full">
-                  <img src={selectedMember.image} alt={selectedMember.name} className="w-full h-full object-cover" />
+                <div className="w-32 h-32 md:w-48 md:h-48 flex-shrink-0 flex items-end justify-center overflow-visible">
+                  <img src={selectedMember.image} alt={selectedMember.name} className="w-full h-full object-contain object-bottom drop-shadow-xl" />
                 </div>
                 
                 <div className="flex-1">
@@ -233,7 +233,7 @@ function PhotoCard({
   return (
     <div
       className={cn(
-        'overflow-hidden cursor-pointer flex-shrink-0 transition-opacity duration-400 border border-white/5',
+        'cursor-pointer flex-shrink-0 transition-opacity duration-400',
         className,
         isDimmed ? 'opacity-40' : 'opacity-100',
       )}
@@ -244,10 +244,7 @@ function PhotoCard({
       <img
         src={member.image}
         alt={member.name}
-        className="w-full h-full object-cover transition-[filter] duration-500"
-        style={{
-          filter: isActive ? 'grayscale(0) brightness(1)' : 'grayscale(1) brightness(0.77)',
-        }}
+        className="w-full h-full object-contain object-bottom transition-all duration-500 drop-shadow-xl"
       />
     </div>
   );
