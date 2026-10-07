@@ -25,8 +25,8 @@ export default function Home() {
         </div>
         
         {/* Left Column: Headline */}
-        <div className="flex-1 p-8 md:p-16 lg:p-24 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10 relative z-10">
-          <h1 className="mb-8 relative z-10 w-full max-w-[90%]">
+        <div className="flex-1 p-6 pt-28 md:p-16 lg:p-24 flex flex-col justify-center border-b md:border-b-0 md:border-r border-white/10 relative z-10">
+          <h1 className="mb-6 md:mb-8 relative z-10 w-full max-w-full md:max-w-[90%] mt-8 md:mt-0">
             <RevealText 
               text="We Don't Just Consult. We Execute and Grow Your Business." 
               fontSize="text-3xl sm:text-4xl md:text-6xl lg:text-7xl xl:text-8xl"

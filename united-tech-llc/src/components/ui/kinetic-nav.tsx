@@ -70,9 +70,9 @@ export function KineticNav() {
     <div ref={containerRef} className="relative z-50">
       {/* Header */}
       <header className="absolute top-0 left-0 w-full z-50 bg-transparent pointer-events-none">
-        <div className="container flex h-32 items-center justify-between">
+        <div className="container flex h-24 md:h-32 items-center justify-between">
           <Link href="/" className="flex items-center h-full pb-2 hover:opacity-80 transition-opacity pointer-events-auto" onClick={closeMenu}>
-            <div className="relative w-[180px] sm:w-[240px] md:w-[380px] h-[60px] sm:h-[85px] md:h-[105px]">
+            <div className="relative w-[140px] sm:w-[200px] md:w-[320px] h-[45px] sm:h-[70px] md:h-[90px]">
               <Image src="/logo.png" alt="United Tech LLC" fill className="object-contain object-left" priority />
             </div>
           </Link>
