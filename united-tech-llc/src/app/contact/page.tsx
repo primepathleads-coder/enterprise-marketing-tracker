@@ -29,7 +29,7 @@ export default function Contact() {
                 support@unitedtechllc.us
               </a>
               <a href="tel:+10000000000" className="text-[#f5f5f7] text-lg hover:text-[#c5a059] transition-colors">
-                +1 (800) CALL-DIRECT
+                +1 562 442 9924
               </a>
             </div>
           </div>
