@@ -1,5 +1,4 @@
 import Image from "next/image";
-import PaperImage from "@/components/ui/paper-image";
 import TeamShowcase from "@/components/ui/team-showcase";
 
 export default function About() {
@@ -80,7 +79,7 @@ export default function About() {
             <div className="relative w-full aspect-[3/4] max-w-[400px]">
               <Image 
                 src="/images/tariq-khan.png" 
-                alt="Esq. Tariq Khan"
+                alt="Tariq Khan, Esq."
                 fill
                 className="object-contain object-center group-hover:scale-105 transition-all duration-700 ease-out" 
               />
@@ -93,14 +92,14 @@ export default function About() {
               Leadership
             </span>
             <h2 className="text-2xl sm:text-4xl md:text-7xl lg:text-8xl text-[#f5f5f7] leading-none mb-1 md:mb-2 font-script">
-              Esq. Tariq Khan
+              Tariq Khan, Esq.
             </h2>
             <p className="font-mono text-[9px] sm:text-[10px] md:text-sm tracking-widest uppercase text-[#a1a1aa] mb-2 md:mb-8">
               Chief Executive Officer & Attorney at Law, USA
             </p>
             <div className="h-px w-12 md:w-24 bg-[#c5a059]/50 mb-2 md:mb-8" />
             <p className="text-[#a1a1aa] leading-relaxed text-[10px] sm:text-xs md:text-lg mb-2 md:mb-6">
-              As an accomplished Attorney at Law in the United States, Esq. Tariq Khan brings a rare blend of sharp legal strategy and aggressive business acumen to United Tech LLC. His leadership is defined by an uncompromising commitment to excellence and a relentless drive to protect and scale the assets of our partners.
+              As an accomplished Attorney at Law in the United States, Tariq Khan, Esq. brings a rare blend of sharp legal strategy and aggressive business acumen to United Tech LLC. His leadership is defined by an uncompromising commitment to excellence and a relentless drive to protect and scale the assets of our partners.
             </p>
             <p className="text-[#a1a1aa] leading-relaxed text-[10px] sm:text-xs md:text-lg">
               Under his guidance, United Tech LLC has evolved beyond a traditional agency into a formidable growth engine. His vision ensures that every operational pipeline we build is not only highly profitable but structurally sound and compliant on a global scale.
@@ -141,8 +140,8 @@ export default function About() {
                 <p className="font-mono text-[9px] sm:text-[10px] md:text-xs tracking-widest uppercase text-[#c5a059] mb-2 md:mb-6">
                   CTO & Board Member
                 </p>
-                <p className="text-[#a1a1aa] leading-relaxed text-[10px] sm:text-xs md:text-base max-w-sm md:mx-auto">
-                  Spearheading technological innovation and scalable architecture. Dr. Munir ensures our operational capabilities remain at the bleeding edge of global tech standards.
+                <p className="text-[#a1a1aa] leading-relaxed text-[10px] sm:text-xs md:text-sm max-w-md md:mx-auto">
+                  Distinguished Engineer, Pride of Performance recipient, and PhD in Structural Dynamics & Aeroelasticity (Gold Medalist) with over 35 years of defence sector experience across design, development, testing, production, and lifecycle support of sub-assemblies & complete systems, as well as relifing of submarines and aircrafts. A consultant across diverse engineering disciplines and member of AIAA, SAMPE, ASME, IIAV, and IEEE.
                 </p>
               </div>
             </div>
