@@ -22,6 +22,15 @@ export interface TeamMember {
 const DEFAULT_MEMBERS: TeamMember[] = [
   {
     id: '1',
+    name: 'Fateh Ali Khan',
+    role: 'Business Development Officer - Pakistan',
+    image: '/images/team/fateh-ali-khan.png',
+    intro: 'Spearheading regional growth and strategic client acquisition across Pakistan. Fateh drives high-impact business development initiatives and bridges enterprise opportunities with tactical precision.',
+    emails: ['fateh@unitedtechllc.us'],
+    social: { linkedin: '#' },
+  },
+  {
+    id: '2',
     name: 'Moiz Rehman',
     role: 'Technical & Affiliate Lead',
     image: '/images/team/moiz-rehman.png',
@@ -30,7 +39,7 @@ const DEFAULT_MEMBERS: TeamMember[] = [
     social: { linkedin: '#', github: '#' },
   },
   {
-    id: '2',
+    id: '3',
     name: 'Moiz Khan',
     role: 'Business Strategy & Operations',
     image: '/images/team/moiz-khan.png',
@@ -39,7 +48,7 @@ const DEFAULT_MEMBERS: TeamMember[] = [
     social: { linkedin: '#' },
   },
   {
-    id: '3',
+    id: '4',
     name: 'Aizaz',
     role: 'Lead Creative',
     image: '/images/team/aizaz.png',
@@ -48,7 +57,7 @@ const DEFAULT_MEMBERS: TeamMember[] = [
     social: { linkedin: '#' },
   },
   {
-    id: '4',
+    id: '5',
     name: 'Ahsan',
     role: 'Sales & Partner Acquisition',
     image: '/images/team/ahsan.png',
@@ -57,7 +66,7 @@ const DEFAULT_MEMBERS: TeamMember[] = [
     social: { linkedin: '#' },
   },
   {
-    id: '5',
+    id: '6',
     name: 'Omar',
     role: 'Marketing Engineering',
     image: '/images/team/omar.png',
