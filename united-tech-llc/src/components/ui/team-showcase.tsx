@@ -31,10 +31,10 @@ const DEFAULT_MEMBERS: TeamMember[] = [
   },
   {
     id: '2',
-    name: 'Moiz Khan',
+    name: 'Abdul Moiz Khan',
     role: 'Managing Director',
     image: '/images/team/moiz-khan.png',
-    intro: 'Directing executive strategy, firm-wide growth, and global operational execution. Moiz Khan leads United Tech LLC with relentless vision and high-stakes business leadership.',
+    intro: 'Directing executive strategy, firm-wide growth, and global operational execution. Abdul Moiz Khan leads United Tech LLC with relentless vision and high-stakes business leadership.',
     emails: ['abdulmoizkhan@unitedtechllc.us'],
     social: { linkedin: '#' },
   },
