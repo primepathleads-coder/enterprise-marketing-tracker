@@ -24,6 +24,18 @@ const mono = JetBrains_Mono({
 export const metadata: Metadata = {
   title: "United Tech LLC | Outsourcing. Marketing. Growth.",
   description: "United Tech LLC is a strategic extension of your team, providing operational expertise in BPO, sales, marketing, and technology.",
+  icons: {
+    icon: [
+      { url: "/favicon.ico" },
+      { url: "/icon.png", type: "image/png" },
+      { url: "/logo.png", type: "image/png" }
+    ],
+    shortcut: "/favicon.ico",
+    apple: [
+      { url: "/apple-icon.png" },
+      { url: "/logo.png" }
+    ],
+  },
 };
 
 export default function RootLayout({
